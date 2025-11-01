@@ -73,14 +73,7 @@ jobs:
 
       - name: Import API into Azure API Management
         run: |
-          az apim api import \
-          --resource-group "${{ env.AZURE_APIM_RESOURCEGROUP }}" \
-          --service-name "${{ env.AZURE_APIM_SERVICENAME }}" \
-          --api-id "${{ env.AZURE_APIM_API_ID }}" \
-          --path "${{ env.AZURE_APIM_RESOURCE_PATH }}" \
-          --specification-url "${{ env.AZURE_APIM_APPSERVICEURL }}/swagger/v1/swagger.json" \
-          --specification-format OpenApi \
-          --subscription-required false
+          az apim api import --resource-group "${{ env.AZURE_APIM_RESOURCEGROUP }}" --service-name "${{ env.AZURE_APIM_SERVICENAME }}" --api-id "${{ env.AZURE_APIM_API_ID }}" --path "${{ env.AZURE_APIM_RESOURCE_PATH }}" --specification-url "${{ env.AZURE_APIM_APPSERVICEURL }}/swagger/v1/swagger.json" --specification-format OpenApi --subscription-required false
 
       - name: Logout
         run: az logout
